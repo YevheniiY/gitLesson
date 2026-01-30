@@ -1,2 +1,3 @@
 # gitLesson
-working with git for children
+
+working with git
