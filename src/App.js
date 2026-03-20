@@ -13,7 +13,12 @@ function App() {
 
   return (
     <div>
-      <List list={[{ name: 'list 1' }, { name: 'list2' }]} />
+      <List
+        list={[
+          { name: 'list 1', isSelected: false },
+          { name: 'list2', isSelected: true },
+        ]}
+      />
     </div>
   );
 }

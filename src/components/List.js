@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { ListItem } from './ListItem';
 
 export const List = ({ list }) => {
   return (
     <ul>
       {list?.map((listItme, index) => {
-        return <li key={index}>Item: {listItme.name}</li>;
+        return (
+          <ListItem name={listItme.name} isSelected={listItme.isSelected} />
+        );
       })}
     </ul>
   );
