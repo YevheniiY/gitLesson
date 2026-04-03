@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import { List } from './components/List';
+import { List } from './components/List/List';
+import { AddNewItem } from './components/AddNewItem/AddNewItem';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [list, setList] = useState([]);
 
-  const onButtonClick = () => {
-    console.log('click');
-    setCount(count + 1);
+  const onAddClick = (text) => {
+    console.log('click', text);
+    if (text?.length > 0) {
+      setList([
+        ...list,
+        {
+          id: new Date(),
+          name: text,
+          isSelected: false,
+        },
+      ]);
+    }
   };
 
   return (
     <div>
-      <List
-        list={[
-          { name: 'list 1', isSelected: false },
-          { name: 'list2', isSelected: true },
-        ]}
-      />
+      <AddNewItem onAddClick={onAddClick} />
+      <List list={list} />
     </div>
   );
 }
