@@ -8,6 +8,11 @@ export const AddNewItem = ({ onAddClick }) => {
     setText(e.target.value);
   };
 
+  const handleAddItem = () => {
+    onAddClick(text);
+    setText('');
+  };
+
   return (
     <div className="container">
       <input
@@ -16,7 +21,7 @@ export const AddNewItem = ({ onAddClick }) => {
         value={text}
         onChange={onInputChange}
       />
-      <button className="addButton" onClick={() => onAddClick(text)}>
+      <button className="addButton" onClick={handleAddItem}>
         Add
       </button>
     </div>
